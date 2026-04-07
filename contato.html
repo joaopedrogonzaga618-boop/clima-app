@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato – Luizão Materiais de Construção</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ── MENU NAVEGAÇÃO ── -->
+  <nav class="menu-nav">
+    <div class="menu-logo">
+      <img src="mascote.png" alt="Luizão" style="height:40px;border-radius:6px">
+      <strong>Luizão Materiais</strong>
+    </div>
+    <ul class="menu-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+      <li><a href="produtos.html"><i class="fas fa-box"></i> Produtos</a></li>
+      <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a></li>
+      <li><a href="contato.html" class="active"><i class="fas fa-envelope"></i> Contato</a></li>
+    </ul>
+    <a href="https://wa.me/5538998324849" target="_blank" class="menu-whats">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+  </nav>
+
+  <!-- ── HEADER TOPO ── -->
+  <div class="header-topo">
+    <div class="header-topo-inner">
+      <span>📍 Fruta de Leite · MG &nbsp;|&nbsp; ☎ (38) 99832-4849 &nbsp;|&nbsp; Seg–Sáb: 7h às 18h</span>
+      <span>📧 joaopedrogonzaga618@gmail.com</span>
+    </div>
+  </div>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-logo">
+      <img src="mascote.png" alt="Luizão" class="header-img">
+    </div>
+    <div class="header-search">
+      <input type="text" placeholder="O que você procura?">
+      <button><i class="fas fa-search"></i></button>
+    </div>
+    <div class="header-direita">
+      <button class="btn-conta"><i class="fas fa-user"></i><span>Minha conta</span></button>
+      <a href="produtos.html" class="btn-carrinho" style="text-decoration:none;display:flex;align-items:center">
+        <i class="fas fa-shopping-bag"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- ── PAGE HERO ── -->
+  <section class="page-hero">
+    <h1><i class="fas fa-envelope"></i> Fale Conosco</h1>
+    <p>Estamos prontos para atender você! Entre em contato por qualquer canal.</p>
+  </section>
+
+  <!-- ── CONTATO PRINCIPAL ── -->
+  <section class="contato-section">
+
+    <!-- CARDS DE CONTATO -->
+    <div class="contato-cards">
+      <div class="contato-card">
+        <div class="contato-icon" style="background:#25d366">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <h3>WhatsApp</h3>
+        <p>Atendimento rápido pelo WhatsApp. Resposta em minutos!</p>
+        <strong>(38) 99832-4849</strong>
+        <a href="https://wa.me/5538998324849" target="_blank" class="btn-contato-verde">
+          <i class="fab fa-whatsapp"></i> Abrir WhatsApp
+        </a>
+      </div>
+
+      <div class="contato-card">
+        <div class="contato-icon" style="background:#ff8c00">
+          <i class="fas fa-phone"></i>
+        </div>
+        <h3>Telefone</h3>
+        <p>Ligue direto para nossa loja e fale com um especialista.</p>
+        <strong>(38) 99832-4849</strong>
+        <a href="tel:38998324849" class="btn-contato-laranja">
+          <i class="fas fa-phone"></i> Ligar Agora
+        </a>
+      </div>
+
+      <div class="contato-card">
+        <div class="contato-icon" style="background:#0d2b4e">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3>E-mail</h3>
+        <p>Envie sua dúvida ou orçamento por e-mail. Respondemos em 24h.</p>
+        <strong>joaopedrogonzaga618@gmail.com</strong>
+        <a href="mailto:joaopedrogonzaga618@gmail.com" class="btn-contato-azul">
+          <i class="fas fa-envelope"></i> Enviar E-mail
+        </a>
+      </div>
+
+      <div class="contato-card">
+        <div class="contato-icon" style="background:#e53935">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <h3>Nossa Loja</h3>
+        <p>Venha nos visitar! Temos tudo que você precisa em estoque.</p>
+        <strong>Rua Principal, 100 · Fruta de Leite · MG</strong>
+        <a href="https://maps.google.com/?q=Fruta+de+Leite,MG" target="_blank" class="btn-contato-vermelho">
+          <i class="fas fa-map-marker-alt"></i> Ver no Mapa
+        </a>
+      </div>
+    </div>
+
+    <!-- FORMULÁRIO E INFORMAÇÕES -->
+    <div class="contato-grid">
+
+      <!-- FORMULÁRIO -->
+      <div class="contato-form-box">
+        <h2>📝 Envie uma Mensagem</h2>
+        <p>Preencha o formulário e entraremos em contato em breve.</p>
+        <form class="contato-form" onsubmit="enviarFormulario(event)">
+          <div class="form-group">
+            <label>Nome completo *</label>
+            <input type="text" id="form-nome" placeholder="Seu nome completo" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Telefone *</label>
+              <input type="tel" id="form-tel" placeholder="(38) 99999-9999" required>
+            </div>
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" id="form-email" placeholder="seu@email.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Assunto *</label>
+            <select id="form-assunto" required>
+              <option value="">Selecione o assunto</option>
+              <option>Orçamento de produtos</option>
+              <option>Dúvida sobre entrega</option>
+              <option>Reclamação</option>
+              <option>Sugestão</option>
+              <option>Outros</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mensagem *</label>
+            <textarea id="form-msg" rows="5" placeholder="Descreva sua dúvida, pedido ou sugestão..." required></textarea>
+          </div>
+          <button type="submit" class="btn-enviar">
+            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+          </button>
+        </form>
+        <div id="form-sucesso" class="form-sucesso" style="display:none">
+          <i class="fas fa-check-circle"></i>
+          <h3>Mensagem enviada!</h3>
+          <p>Entraremos em contato em breve. Obrigado!</p>
+        </div>
+      </div>
+
+      <!-- INFORMAÇÕES -->
+      <div class="contato-info-box">
+        <h2>📋 Informações da Loja</h2>
+
+        <div class="info-bloco">
+          <h4><i class="fas fa-clock"></i> Horário de Funcionamento</h4>
+          <table class="horario-table">
+            <tr><td>Segunda-feira</td><td>7h às 18h</td></tr>
+            <tr><td>Terça-feira</td><td>7h às 18h</td></tr>
+            <tr><td>Quarta-feira</td><td>7h às 18h</td></tr>
+            <tr><td>Quinta-feira</td><td>7h às 18h</td></tr>
+            <tr><td>Sexta-feira</td><td>7h às 18h</td></tr>
+            <tr><td>Sábado</td><td>7h às 12h</td></tr>
+            <tr class="fechado"><td>Domingo</td><td>Fechado</td></tr>
+          </table>
+        </div>
+
+        <div class="info-bloco">
+          <h4><i class="fas fa-truck"></i> Área de Entrega</h4>
+          <p>Entregamos em <strong>Fruta de Leite</strong> e cidades vizinhas da região.</p>
+          <ul class="cidades-lista">
+            <li>✅ Fruta de Leite</li>
+            <li>✅ Rio Pardo de Minas</li>
+            <li>✅ Taiobeiras</li>
+            <li>✅ Salinas</li>
+            <li>✅ Região circunvizinha</li>
+          </ul>
+        </div>
+
+        <div class="info-bloco">
+          <h4><i class="fas fa-credit-card"></i> Formas de Pagamento</h4>
+          <div class="pagamentos" style="margin-top:10px">
+            <span class="pag-icon">💠 Pix</span>
+            <span class="pag-icon">💳 Cartão</span>
+            <span class="pag-icon">💵 Dinheiro</span>
+            <span class="pag-icon">📄 Boleto</span>
+          </div>
+        </div>
+
+        <div class="info-bloco">
+          <h4><i class="fas fa-share-alt"></i> Redes Sociais</h4>
+          <div class="redes-sociais">
+            <a href="#" class="rede-btn facebook">
+              <i class="fab fa-facebook"></i> Facebook
+            </a>
+            <a href="#" class="rede-btn instagram">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://wa.me/5538998324849" target="_blank" class="rede-btn whatsapp">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAPA -->
+    <div class="mapa-section">
+      <h2>📍 Nossa Localização</h2>
+      <p>Venha nos visitar em Fruta de Leite · MG</p>
+      <div class="mapa-wrapper">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15323.123456789!2d-42.123456!3d-15.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sFruta%20de%20Leite%2C%20MG!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+          width="100%" height="400" style="border:0;border-radius:12px"
+          allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- LINKS ÚTEIS -->
+    <div class="links-uteis-section">
+      <h2>🔗 Links Úteis</h2>
+      <p>Recursos que podem ajudar na sua obra e construção</p>
+      <div class="links-grid">
+        <a href="https://www.caixa.gov.br/habitacao" target="_blank" class="link-card">
+          <span>🏦</span><strong>Caixa Econômica</strong><p>Financiamento habitacional</p>
+        </a>
+        <a href="https://www.sebrae.com.br" target="_blank" class="link-card">
+          <span>📊</span><strong>SEBRAE</strong><p>Apoio a pequenos negócios</p>
+        </a>
+        <a href="https://www.caubr.gov.br" target="_blank" class="link-card">
+          <span>🏗</span><strong>CAU/BR</strong><p>Conselho de Arquitetura</p>
+        </a>
+        <a href="https://www.crea-mg.org.br" target="_blank" class="link-card">
+          <span>⚙️</span><strong>CREA-MG</strong><p>Conselho de Engenharia MG</p>
+        </a>
+        <a href="https://www.youtube.com/@dicasdeconstrucao" target="_blank" class="link-card">
+          <span>🎬</span><strong>Dicas de Construção</strong><p>Canal no YouTube</p>
+        </a>
+        <a href="https://maps.google.com/?q=Fruta+de+Leite,MG" target="_blank" class="link-card">
+          <span>🗺</span><strong>Google Maps</strong><p>Como chegar até nós</p>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-nav">
+      <button class="nav-cat promocao">🔥 PROMOÇÕES</button>
+      <button class="nav-cat">Pisos e Revest.</button>
+      <button class="nav-cat">Tintas</button>
+      <button class="nav-cat">Materiais de Construção</button>
+      <button class="nav-cat">Ferramentas</button>
+      <button class="nav-cat">Iluminação</button>
+    </div>
+    <div class="footer-main">
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="index.html">🏠 Início</a>
+        <a href="produtos.html">📦 Produtos</a>
+        <a href="contato.html">📧 Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4>Institucional</h4>
+        <a href="#">Sobre a empresa</a>
+        <a href="#">Como comprar</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Política de Trocas</a>
+        <a href="#">Trabalhe Conosco</a>
+      </div>
+      <div class="footer-col">
+        <h4>Atendimento</h4>
+        <p><i class="fas fa-phone"></i> (38) 99832-4849</p>
+        <p><i class="fab fa-whatsapp"></i> (38) 99832-4849</p>
+        <p><i class="fas fa-envelope"></i> joaopedrogonzaga618@gmail.com</p>
+        <p class="footer-horario">Segunda à sexta das 7h às 18h e Sábados das 7h às 12h</p>
+      </div>
+      <div class="footer-col">
+        <h4>Redes Sociais</h4>
+        <a href="#" class="social-link"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://wa.me/5538998324849" class="social-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h4>Formas de Pagamento</h4>
+        <div class="pagamentos">
+          <span class="pag-icon">💳 Visa</span>
+          <span class="pag-icon">💳 Master</span>
+          <span class="pag-icon">💠 Pix</span>
+          <span class="pag-icon">📄 Boleto</span>
+          <span class="pag-icon">💵 Dinheiro</span>
+        </div>
+        <div class="selos" style="margin-top:14px">
+          <div class="selo"><i class="fas fa-shield-alt"></i> Loja Protegida</div>
+          <div class="selo"><i class="fab fa-google"></i> Google Safe</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <img src="mascote.png" alt="Luizão" style="height:60px;border-radius:10px">
+      <div>
+        <strong>Luizão Materiais de Construção</strong>
+        <p>© 2025 Luizão Materiais · Fruta de Leite · MG · Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function enviarFormulario(e) {
+      e.preventDefault();
+      const nome = document.getElementById("form-nome").value;
+      const tel = document.getElementById("form-tel").value;
+      const assunto = document.getElementById("form-assunto").value;
+      const msg = document.getElementById("form-msg").value;
+      if (!nome || !tel || !assunto || !msg) {
+        alert("⚠️ Preencha todos os campos obrigatórios!"); return;
+      }
+      document.querySelector(".contato-form").style.display = "none";
+      document.getElementById("form-sucesso").style.display = "flex";
+    }
+
+    function toggleFaq(el) { el.classList.toggle("open"); }
+  </script>
+</body>
+</html>

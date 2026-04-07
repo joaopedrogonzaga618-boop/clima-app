@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos – Luizão Materiais de Construção</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ── MENU NAVEGAÇÃO ── -->
+  <nav class="menu-nav">
+    <div class="menu-logo">
+      <img src="mascote.png" alt="Luizão" style="height:40px;border-radius:6px">
+      <strong>Luizão Materiais</strong>
+    </div>
+    <ul class="menu-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+      <li><a href="produtos.html" class="active"><i class="fas fa-box"></i> Produtos</a></li>
+      <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a></li>
+      <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+    </ul>
+    <a href="https://wa.me/5538998324849" target="_blank" class="menu-whats">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+  </nav>
+
+  <!-- ── NOTIFICAÇÃO ENTREGA ── -->
+  <div id="notif-entrega" class="notif-entrega" style="display:none">
+    <div class="notif-icon">🚚</div>
+    <div class="notif-texto">
+      <strong>Pedido a caminho!</strong>
+      <p>Seu pedido saiu para entrega. Aguarde!</p>
+    </div>
+    <button onclick="fecharNotif()">✕</button>
+  </div>
+
+  <!-- ── HEADER TOPO ── -->
+  <div class="header-topo">
+    <div class="header-topo-inner">
+      <span>📍 Fruta de Leite · MG &nbsp;|&nbsp; ☎ (38) 99832-4849 &nbsp;|&nbsp; Seg–Sáb: 7h às 18h</span>
+      <span>📧 joaopedrogonzaga618@gmail.com</span>
+    </div>
+  </div>
+
+  <!-- ── HEADER PRINCIPAL ── -->
+  <header class="header">
+    <div class="header-logo">
+      <img src="mascote.png" alt="Luizão" class="header-img">
+    </div>
+    <div class="header-search">
+      <input type="text" id="search-input" placeholder="O que você procura?" onkeyup="buscarProduto(this.value)">
+      <button onclick="buscarProduto(document.getElementById('search-input').value)">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+    <div class="header-direita">
+      <button class="btn-conta"><i class="fas fa-user"></i><span>Minha conta</span></button>
+      <button class="btn-carrinho" onclick="abrirCarrinho()">
+        <i class="fas fa-shopping-bag"></i>
+        <span id="badge-carrinho" class="badge" style="display:none">0</span>
+      </button>
+      <button class="suporte-header-btn" onclick="abrirSuporte()">
+        <i class="fas fa-headset"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── MENU CATEGORIAS ── -->
+  <nav class="nav-cats">
+    <button class="nav-cat promocao" onclick="filtrarCat('promocao',this)">🔥 PROMOÇÕES</button>
+    <button class="nav-cat" onclick="filtrarCat('acabamento',this)">Pisos e Revest.</button>
+    <button class="nav-cat" onclick="filtrarCat('hidraulica',this)">Banheiro</button>
+    <button class="nav-cat" onclick="filtrarCat('hidraulica',this)">Cozinha</button>
+    <button class="nav-cat" onclick="filtrarCat('tinta',this)">Tintas</button>
+    <button class="nav-cat" onclick="filtrarCat('basico',this)">Materiais de Construção</button>
+    <button class="nav-cat" onclick="filtrarCat('ferramenta',this)">Ferramentas</button>
+    <button class="nav-cat" onclick="filtrarCat('eletrica',this)">Iluminação</button>
+    <button class="nav-cat" onclick="filtrarCat('eletrica',this)">Materiais Elétricos</button>
+    <button class="nav-cat" onclick="filtrarCat('hidraulica',this)">Material Hidráulico</button>
+    <button class="nav-cat active" onclick="filtrarCat('todos',this)">Todos</button>
+  </nav>
+
+  <!-- ── ESTOQUE BANNER ── -->
+  <div class="estoque-banner">
+    <div class="estoque-banner-content">
+      <span>📦</span>
+      <div>
+        <strong>Estoque em tempo real</strong>
+        <p>Quantidades atualizadas automaticamente a cada compra</p>
+      </div>
+      <div class="estoque-semaforo">
+        <span class="sem-verde"></span>
+        <span class="sem-texto">Estoque disponível</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PRODUTOS ── -->
+  <section id="produtos" class="produtos-section">
+    <div class="produtos-header">
+      <h1 class="secao-titulo">📦 Todos os Produtos</h1>
+      <div class="ordenar">
+        <label>Ordenar por:</label>
+        <select onchange="ordenarProdutos(this.value)">
+          <option value="padrao">Mais Vendido</option>
+          <option value="menor">Menor Preço</option>
+          <option value="maior">Maior Preço</option>
+          <option value="desc">Maior Desconto</option>
+        </select>
+      </div>
+    </div>
+    <div class="produtos-grid" id="produtos-grid"></div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-nav">
+      <button class="nav-cat promocao">🔥 PROMOÇÕES</button>
+      <button class="nav-cat">Pisos e Revest.</button>
+      <button class="nav-cat">Banheiro</button>
+      <button class="nav-cat">Tintas</button>
+      <button class="nav-cat">Materiais de Construção</button>
+      <button class="nav-cat">Ferramentas</button>
+      <button class="nav-cat">Iluminação</button>
+    </div>
+    <div class="footer-main">
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="index.html">🏠 Início</a>
+        <a href="produtos.html">📦 Produtos</a>
+        <a href="contato.html">📧 Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4>Institucional</h4>
+        <a href="#">Sobre a empresa</a>
+        <a href="#">Como comprar</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Política de Trocas</a>
+        <a href="#">Trabalhe Conosco</a>
+      </div>
+      <div class="footer-col">
+        <h4>Atendimento</h4>
+        <p><i class="fas fa-phone"></i> (38) 99832-4849</p>
+        <p><i class="fab fa-whatsapp"></i> (38) 99832-4849</p>
+        <p><i class="fas fa-envelope"></i> joaopedrogonzaga618@gmail.com</p>
+        <p class="footer-horario">Segunda à sexta das 7h às 18h e Sábados das 7h às 12h</p>
+      </div>
+      <div class="footer-col">
+        <h4>Redes Sociais</h4>
+        <a href="#" class="social-link"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://wa.me/5538998324849" class="social-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h4>Formas de Pagamento</h4>
+        <div class="pagamentos">
+          <span class="pag-icon">💳 Visa</span>
+          <span class="pag-icon">💳 Master</span>
+          <span class="pag-icon">💠 Pix</span>
+          <span class="pag-icon">📄 Boleto</span>
+          <span class="pag-icon">💵 Dinheiro</span>
+        </div>
+        <div class="selos" style="margin-top:14px">
+          <div class="selo"><i class="fas fa-shield-alt"></i> Loja Protegida</div>
+          <div class="selo"><i class="fab fa-google"></i> Google Safe</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <img src="mascote.png" alt="Luizão" style="height:60px;border-radius:10px">
+      <div>
+        <strong>Luizão Materiais de Construção</strong>
+        <p>© 2025 Luizão Materiais · Fruta de Leite · MG · Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAIS -->
+  <div class="modal-overlay" id="modal-produto" style="display:none">
+    <div class="modal-produto">
+      <button class="fechar" onclick="fecharProduto()">✕</button>
+      <div id="produto-conteudo"></div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-carrinho" style="display:none">
+    <div class="modal-carrinho">
+      <button class="fechar" onclick="fecharCarrinho()">✕</button>
+      <h2>🛒 Seu Carrinho</h2>
+      <div id="carrinho-itens"></div>
+      <div id="carrinho-total"></div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-pagamento" style="display:none">
+    <div class="modal-pagamento">
+      <button class="fechar" onclick="fecharPagamento()">✕</button>
+      <div id="pagamento-conteudo"></div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-suporte" style="display:none">
+    <div class="modal-suporte">
+      <button class="fechar" onclick="fecharSuporte()">✕</button>
+      <div class="suporte-header">
+        <span>🎧</span>
+        <div><h2>Central de Suporte</h2><p>Estamos aqui para ajudar!</p></div>
+      </div>
+      <div class="suporte-opcoes">
+        <a href="https://wa.me/5538998324849" target="_blank" class="suporte-card">
+          <span>📱</span><div><strong>WhatsApp</strong><p>(38) 99832-4849</p></div>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="tel:38998324849" class="suporte-card">
+          <span>📞</span><div><strong>Ligar Agora</strong><p>(38) 99832-4849</p></div>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="mailto:joaopedrogonzaga618@gmail.com" class="suporte-card">
+          <span>📧</span><div><strong>E-mail</strong><p>joaopedrogonzaga618@gmail.com</p></div>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+      </div>
+      <div class="suporte-faq">
+        <h3>❓ Dúvidas Frequentes</h3>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-pergunta">Como faço um pedido? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-resposta">Escolha os produtos, adicione ao carrinho e finalize informando endereço e pagamento.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-pergunta">Qual o prazo de entrega? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-resposta">Entregamos em Fruta de Leite e região. Prazo médio de 1 a 2 dias úteis.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-pergunta">Quais formas de pagamento? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-resposta">Aceitamos Pix, cartão de crédito/débito, boleto e dinheiro.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

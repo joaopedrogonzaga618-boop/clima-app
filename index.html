@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luizão Materiais de Construção – Fruta de Leite · MG</title>
+  <meta name="description" content="Loja de materiais de construção em Fruta de Leite MG. Cimento, areia, tintas, ferramentas e muito mais com entrega rápida!">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ── BARRA DE SEGURANÇA ── -->
+  <div class="seg-bar">
+    <span><i class="fas fa-lock"></i> Site Seguro</span>
+    <span><i class="fas fa-shield-alt"></i> Dados Protegidos</span>
+    <span><i class="fas fa-check-circle"></i> Compra Garantida</span>
+    <span><i class="fas fa-truck"></i> Entrega em Fruta de Leite e região</span>
+  </div>
+
+  <!-- ── MENU ── -->
+  <nav class="menu-nav">
+    <div class="menu-logo">
+      <img src="mascote.png" alt="Luizão">
+      <div>
+        <strong>Luizão Materiais</strong>
+        <span>Fruta de Leite · MG</span>
+      </div>
+    </div>
+    <ul class="menu-links">
+      <li><a href="index.html" class="active"><i class="fas fa-home"></i> Início</a></li>
+      <li><a href="produtos.html"><i class="fas fa-box"></i> Produtos</a></li>
+      <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a></li>
+      <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+    </ul>
+    <a href="https://wa.me/5538998324849" target="_blank" class="menu-whats">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+  </nav>
+
+  <!-- ── HEADER ── -->
+  <div class="header-topo">
+    <div class="header-topo-inner">
+      <span><i class="fas fa-map-marker-alt"></i> Fruta de Leite · MG</span>
+      <span><i class="fas fa-phone"></i> (38) 99832-4849</span>
+      <span><i class="fas fa-clock"></i> Seg–Sáb: 7h às 18h</span>
+      <span><i class="fas fa-envelope"></i> joaopedrogonzaga618@gmail.com</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="header-logo">
+      <img src="mascote.png" alt="Luizão" class="header-img">
+    </div>
+    <div class="header-search">
+      <input type="text" id="search-input" placeholder="O que você procura? Ex: cimento, tinta, porta...">
+      <button onclick="buscarProduto(document.getElementById('search-input').value)">
+        <i class="fas fa-search"></i> Buscar
+      </button>
+    </div>
+    <div class="header-direita">
+      <div class="header-info">
+        <i class="fas fa-truck"></i>
+        <div><small>Entrega em</small><strong>Fruta de Leite</strong></div>
+      </div>
+      <button class="btn-carrinho" onclick="abrirCarrinho()">
+        <i class="fas fa-shopping-cart"></i>
+        <div><small>Meu</small><strong>Carrinho</strong></div>
+        <span id="badge-carrinho" class="badge" style="display:none">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── NOTIF ENTREGA ── -->
+  <div id="notif-entrega" class="notif-entrega" style="display:none">
+    <div class="notif-icon">🚚</div>
+    <div class="notif-texto">
+      <strong>Pedido a caminho!</strong>
+      <p>Seu pedido saiu para entrega. Aguarde!</p>
+    </div>
+    <button onclick="fecharNotif()">✕</button>
+  </div>
+
+  <!-- ── HERO BANNER ── -->
+  <section class="hero">
+    <div class="hero-slider">
+      <div class="hero-slide active">
+        <div class="hero-content">
+          <span class="hero-badge"><i class="fas fa-bolt"></i> Ofertas Imperdíveis</span>
+          <h1>Tudo para sua<br><span>construção e reforma</span></h1>
+          <p>Materiais de qualidade com os melhores preços de Fruta de Leite e região!</p>
+          <div class="hero-btns">
+            <a href="produtos.html" class="btn-primary"><i class="fas fa-shopping-cart"></i> Comprar Agora</a>
+            <a href="https://wa.me/5538998324849" target="_blank" class="btn-ghost">
+              <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+            </a>
+          </div>
+          <div class="hero-selos">
+            <span><i class="fas fa-lock"></i> Compra Segura</span>
+            <span><i class="fas fa-undo"></i> Troca Garantida</span>
+            <span><i class="fas fa-truck"></i> Entrega Rápida</span>
+          </div>
+        </div>
+        <div class="hero-img-area">
+          <img src="mascote.png" alt="Luizão" class="hero-mascote-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CATEGORIAS ── -->
+  <section class="cats-section">
+    <div class="cats-grid">
+      <a href="produtos.html?cat=basico" class="cat-box">
+        <span>🏗</span><strong>Materiais Básicos</strong>
+      </a>
+      <a href="produtos.html?cat=ferramenta" class="cat-box">
+        <span>🔧</span><strong>Ferramentas</strong>
+      </a>
+      <a href="produtos.html?cat=tinta" class="cat-box">
+        <span>🎨</span><strong>Tintas</strong>
+      </a>
+      <a href="produtos.html?cat=hidraulica" class="cat-box">
+        <span>🚿</span><strong>Hidráulica</strong>
+      </a>
+      <a href="produtos.html?cat=eletrica" class="cat-box">
+        <span>⚡</span><strong>Elétrica</strong>
+      </a>
+      <a href="produtos.html?cat=acabamento" class="cat-box">
+        <span>🪟</span><strong>Acabamento</strong>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── BANNERS PROMOÇÃO ── -->
+  <section class="promo-banners">
+    <div class="promo-banner promo-1">
+      <div class="promo-txt">
+        <h3>Tintas com até 15% OFF</h3>
+        <p>Linha completa de tintas e massa corrida</p>
+        <a href="produtos.html?cat=tinta" class="btn-promo">Ver ofertas →</a>
+      </div>
+    </div>
+    <div class="promo-banner promo-2">
+      <div class="promo-txt">
+        <h3>Ferramentas em promoção</h3>
+        <p>Furadeira, martelo, pá e muito mais</p>
+        <a href="produtos.html?cat=ferramenta" class="btn-promo">Ver ofertas →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUTOS DESTAQUE ── -->
+  <section class="produtos-section" id="produtos">
+    <div class="produtos-header">
+      <h2 class="secao-titulo"><i class="fas fa-star"></i> Produtos em Destaque</h2>
+      <a href="produtos.html" class="ver-todos">Ver todos os produtos <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="produtos-grid" id="produtos-grid"></div>
+  </section>
+
+  <!-- ── SOBRE RESUMO ── -->
+  <section class="sobre-home">
+    <div class="sobre-home-inner">
+      <div class="sobre-home-img">
+        <img src="mascote.png" alt="Luizão">
+        <div class="sobre-numeros">
+          <div class="sobre-num"><strong>20+</strong><span>Anos</span></div>
+          <div class="sobre-num"><strong>500+</strong><span>Produtos</span></div>
+          <div class="sobre-num"><strong>5mil+</strong><span>Clientes</span></div>
+        </div>
+      </div>
+      <div class="sobre-home-txt">
+        <span class="sobre-badge">Quem Somos</span>
+        <h2>Luizão Materiais de Construção</h2>
+        <p>Há mais de <strong>20 anos</strong> construindo sonhos em <strong>Fruta de Leite e região</strong>. Somos referência em qualidade, preço justo e atendimento personalizado.</p>
+        <p>Do cimento à tinta, da furadeira à porta — temos tudo que sua obra precisa com entrega rápida na sua porta!</p>
+        <div class="sobre-checks">
+          <span><i class="fas fa-check"></i> +500 produtos em estoque</span>
+          <span><i class="fas fa-check"></i> Entrega em toda região</span>
+          <span><i class="fas fa-check"></i> Preço justo garantido</span>
+          <span><i class="fas fa-check"></i> Atendimento pelo WhatsApp</span>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+          <a href="sobre.html" class="btn-primary" style="text-decoration:none">Saiba mais</a>
+          <a href="contato.html" class="btn-outline" style="text-decoration:none">Fale conosco</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DIFERENCIAIS ── -->
+  <section class="diferenciais">
+    <h2>Por que escolher o Luizão?</h2>
+    <div class="diferenciais-grid">
+      <div class="dif-card">
+        <div class="dif-icon"><i class="fas fa-medal"></i></div>
+        <h4>Qualidade Garantida</h4>
+        <p>Trabalhamos apenas com produtos de marcas reconhecidas e de alta qualidade.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon"><i class="fas fa-tag"></i></div>
+        <h4>Melhor Preço</h4>
+        <p>Preços competitivos e promoções semanais para você economizar na sua obra.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon"><i class="fas fa-truck"></i></div>
+        <h4>Entrega Rápida</h4>
+        <p>Entregamos em Fruta de Leite e cidades vizinhas com prazo de 1 a 2 dias úteis.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon"><i class="fas fa-headset"></i></div>
+        <h4>Suporte 24h</h4>
+        <p>Atendimento pelo WhatsApp para tirar dúvidas e fazer pedidos a qualquer hora.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon"><i class="fas fa-shield-alt"></i></div>
+        <h4>Compra Segura</h4>
+        <p>Seus dados protegidos com criptografia SSL e política de privacidade rigorosa.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon"><i class="fas fa-undo"></i></div>
+        <h4>Troca Garantida</h4>
+        <p>Produtos com defeito? Garantimos a troca em até 7 dias sem burocracia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LINKS ÚTEIS ── -->
+  <section class="links-section">
+    <h2>🔗 Links Úteis</h2>
+    <p>Recursos que podem ajudar na sua obra</p>
+    <div class="links-grid">
+      <a href="https://www.caixa.gov.br/habitacao" target="_blank" class="link-card">
+        <span>🏦</span><strong>Caixa Econômica</strong><p>Financiamento habitacional</p>
+      </a>
+      <a href="https://www.sebrae.com.br" target="_blank" class="link-card">
+        <span>📊</span><strong>SEBRAE</strong><p>Apoio a pequenos negócios</p>
+      </a>
+      <a href="https://www.caubr.gov.br" target="_blank" class="link-card">
+        <span>🏗</span><strong>CAU/BR</strong><p>Conselho de Arquitetura</p>
+      </a>
+      <a href="https://www.crea-mg.org.br" target="_blank" class="link-card">
+        <span>⚙️</span><strong>CREA-MG</strong><p>Conselho de Engenharia MG</p>
+      </a>
+      <a href="https://maps.google.com/?q=Fruta+de+Leite,MG" target="_blank" class="link-card">
+        <span>🗺</span><strong>Google Maps</strong><p>Como chegar até nós</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-col footer-brand">
+        <img src="mascote.png" alt="Luizão" style="height:80px;border-radius:12px;margin-bottom:14px">
+        <strong>Luizão Materiais de Construção</strong>
+        <p>Construindo sonhos em Fruta de Leite há mais de 20 anos.</p>
+        <div class="footer-redes">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5538998324849"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="index.html"><i class="fas fa-chevron-right"></i> Início</a>
+        <a href="produtos.html"><i class="fas fa-chevron-right"></i> Produtos</a>
+        <a href="sobre.html"><i class="fas fa-chevron-right"></i> Sobre nós</a>
+        <a href="contato.html"><i class="fas fa-chevron-right"></i> Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4>Institucional</h4>
+        <a href="sobre.html#historia"><i class="fas fa-chevron-right"></i> Sobre a empresa</a>
+        <a href="sobre.html#como-comprar"><i class="fas fa-chevron-right"></i> Como comprar</a>
+        <a href="sobre.html#privacidade"><i class="fas fa-chevron-right"></i> Política de Privacidade</a>
+        <a href="sobre.html#trocas"><i class="fas fa-chevron-right"></i> Política de Trocas</a>
+        <a href="sobre.html#trabalhe"><i class="fas fa-chevron-right"></i> Trabalhe Conosco</a>
+      </div>
+      <div class="footer-col">
+        <h4>Atendimento</h4>
+        <p><i class="fas fa-phone"></i> (38) 99832-4849</p>
+        <p><i class="fab fa-whatsapp"></i> (38) 99832-4849</p>
+        <p><i class="fas fa-envelope"></i> joaopedrogonzaga618@gmail.com</p>
+        <p><i class="fas fa-clock"></i> Seg–Sex: 7h às 18h · Sáb: 7h às 12h</p>
+        <p><i class="fas fa-map-marker-alt"></i> Rua Principal, 100 · Fruta de Leite · MG</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pagamento Seguro</h4>
+        <div class="footer-pags">
+          <div class="pag-card"><i class="fas fa-qrcode"></i> Pix</div>
+          <div class="pag-card"><i class="fas fa-credit-card"></i> Cartão</div>
+          <div class="pag-card"><i class="fas fa-money-bill"></i> Dinheiro</div>
+          <div class="pag-card"><i class="fas fa-barcode"></i> Boleto</div>
+        </div>
+        <div class="footer-selos">
+          <div class="footer-selo"><i class="fas fa-lock"></i> SSL Seguro</div>
+          <div class="footer-selo"><i class="fas fa-shield-alt"></i> Loja Protegida</div>
+          <div class="footer-selo"><i class="fab fa-google"></i> Google Safe</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Luizão Materiais de Construção · CNPJ: 12.345.678/0001-90 · Fruta de Leite · MG</p>
+      <div class="footer-seg">
+        <i class="fas fa-lock"></i> Site protegido por criptografia SSL 256-bit
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAIS -->
+  <div class="modal-overlay" id="modal-produto" style="display:none">
+    <div class="modal-produto">
+      <button class="fechar" onclick="fecharProduto()">✕</button>
+      <div id="produto-conteudo"></div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-carrinho" style="display:none">
+    <div class="modal-carrinho">
+      <button class="fechar" onclick="fecharCarrinho()">✕</button>
+      <h2><i class="fas fa-shopping-cart"></i> Seu Carrinho</h2>
+      <div id="carrinho-itens"></div>
+      <div id="carrinho-total"></div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-pagamento" style="display:none">
+    <div class="modal-pagamento">
+      <button class="fechar" onclick="fecharPagamento()">✕</button>
+      <div id="pagamento-conteudo"></div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-suporte" style="display:none">
+    <div class="modal-suporte">
+      <button class="fechar" onclick="fecharSuporte()">✕</button>
+      <div class="suporte-header">
+        <span>🎧</span>
+        <div><h2>Central de Suporte</h2><p>Estamos aqui para ajudar!</p></div>
+      </div>
+      <div class="suporte-opcoes">
+        <a href="https://wa.me/5538998324849" target="_blank" class="suporte-card">
+          <span>📱</span><div><strong>WhatsApp</strong><p>(38) 99832-4849</p></div>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="tel:38998324849" class="suporte-card">
+          <span>📞</span><div><strong>Ligar Agora</strong><p>(38) 99832-4849</p></div>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="mailto:joaopedrogonzaga618@gmail.com" class="suporte-card">
+          <span>📧</span><div><strong>E-mail</strong><p>joaopedrogonzaga618@gmail.com</p></div>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÃO WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/5538998324849" target="_blank" class="whats-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
